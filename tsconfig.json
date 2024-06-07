@@ -1,0 +1,6 @@
+{
+  "extends": "@zcorp/tsconfig/tsconfig.package.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  }
+}
