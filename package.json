@@ -1,8 +1,12 @@
 {
   "name": "@zcorp/shared-typing-wheelz",
   "version": "1.0.0",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "eslint .",
@@ -10,16 +14,19 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@zcorp/eslint-config": "^1.0.2",
-    "@zcorp/prettier-config": "^1.0.2",
-    "@zcorp/tsconfig": "^1.0.2",
+    "@types/node": "^20.14.2",
+    "@zcorp/eslint-config": "latest",
+    "@zcorp/prettier-config": "latest",
+    "@zcorp/tsconfig": "latest",
     "bumpp": "^9.4.1",
     "eslint": "^8.57.0",
     "prettier": "^3.3.1",
-    "typescript": "^5.4.5",
-    "@types/node": "^20.14.2"
+    "typescript": "^5.4.5"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
   }
 }

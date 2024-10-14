@@ -1,6 +1,12 @@
 {
   "extends": "@zcorp/tsconfig/tsconfig.package.json",
   "compilerOptions": {
-    "outDir": "./dist"
-  }
+    "outDir": "dist"
+  },
+  "include": [
+    "./src/**/*.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
