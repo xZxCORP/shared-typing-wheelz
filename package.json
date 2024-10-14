@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint .",
-    "release": "bumpp -r && npm run build && pnpm -r publish",
+    "release": "npm run lint && bumpp package.json --commit --push --tag && npm run build && npm publish",
     "format": "prettier --write ."
   },
   "devDependencies": {
