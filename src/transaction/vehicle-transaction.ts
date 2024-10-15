@@ -5,6 +5,7 @@ import { vehicleTransactionDataSchema } from './vehicle-transaction-data.js';
 
 export const vehicleTransactionSchema = z
   .object({
+    id: z.string(),
     timestamp: z.date(),
     dataSignature: signatureSchema,
   })
