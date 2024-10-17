@@ -8,6 +8,7 @@ export const vehicleTransactionSchema = z
     id: z.string(),
     timestamp: z.date(),
     dataSignature: signatureSchema,
+    status: z.enum(['pending', 'finished']),
   })
   .and(vehicleTransactionDataSchema);
 export type VehicleTransaction = z.infer<typeof vehicleTransactionSchema>;

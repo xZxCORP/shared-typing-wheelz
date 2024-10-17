@@ -8,6 +8,7 @@ export const createTransactionFixture: VehicleTransaction = {
   action: 'create',
   data: vehicleFixture,
   dataSignature: signatureFixture,
+  status: 'finished',
 };
 
 export const updateTransactionFixture: VehicleTransaction = {
@@ -21,6 +22,7 @@ export const updateTransactionFixture: VehicleTransaction = {
       year: 2023,
     },
   },
+  status: 'finished',
   dataSignature: signatureFixture,
 };
 
@@ -31,5 +33,6 @@ export const deleteTransactionFixture: VehicleTransaction = {
   data: {
     vin: 'ABCDEFGHIJKLMNOPQ',
   },
+  status: 'finished',
   dataSignature: signatureFixture,
 };
