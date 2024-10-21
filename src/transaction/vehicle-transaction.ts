@@ -6,7 +6,7 @@ import { vehicleTransactionDataSchema } from './vehicle-transaction-data.js';
 export const vehicleTransactionSchema = z
   .object({
     id: z.string(),
-    timestamp: z.date(),
+    timestamp: z.coerce.date(),
     dataSignature: signatureSchema,
     status: z.enum(['pending', 'finished']),
   })
