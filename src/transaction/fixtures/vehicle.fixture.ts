@@ -6,9 +6,9 @@ export const vehicleFixture: Vehicle = {
   model: 'Corolla',
   year: 2022,
   risks: {
-    exterior: ['minor_scratch'],
+    exterior: [{ name: 'minor_scratch' }],
     mechanical: [],
-    generic: ['high_mileage'],
+    generic: [{ name: 'high_mileage' }],
   },
   sinisters: [
     {
@@ -30,7 +30,7 @@ export const vehicleFixture: Vehicle = {
   ],
   issues: {
     exterior: [],
-    mechanical: ['brake_wear'],
+    mechanical: [{ name: 'brake_wear' }],
     generic: [],
   },
 };

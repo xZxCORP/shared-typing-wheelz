@@ -24,10 +24,13 @@ const sinisterSchema = z.object({
 });
 export type Sinister = z.infer<typeof sinisterSchema>;
 
+const riskIssueItem = z.object({
+  name: z.string().min(1),
+});
 const risksIssuesSchema = z.object({
-  exterior: z.array(z.string().min(1)),
-  mechanical: z.array(z.string().min(1)),
-  generic: z.array(z.string().min(1)),
+  exterior: z.array(riskIssueItem),
+  mechanical: z.array(riskIssueItem),
+  generic: z.array(riskIssueItem),
 });
 export type RisksIssues = z.infer<typeof risksIssuesSchema>;
 
