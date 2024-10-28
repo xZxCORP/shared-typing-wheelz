@@ -4,11 +4,13 @@ const coordinatesSchema = z.object({
   latitude: z.number(),
   longitude: z.number(),
 });
+export type Coordinates = z.infer<typeof coordinatesSchema>;
 
 const locationSchema = z.object({
   description: z.string().min(1),
   coordinates: coordinatesSchema,
 });
+export type Location = z.infer<typeof locationSchema>;
 
 const sinisterSchema = z.object({
   date: z.coerce.date(),
@@ -20,12 +22,14 @@ const sinisterSchema = z.object({
   isWeekend: z.boolean(),
   location: locationSchema,
 });
+export type Sinister = z.infer<typeof sinisterSchema>;
 
 const risksIssuesSchema = z.object({
   exterior: z.array(z.string().min(1)),
   mechanical: z.array(z.string().min(1)),
   generic: z.array(z.string().min(1)),
 });
+export type RisksIssues = z.infer<typeof risksIssuesSchema>;
 
 export const vehicleSchema = z.object({
   vin: z.string().min(17).max(17),
