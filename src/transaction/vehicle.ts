@@ -14,8 +14,6 @@ export type Location = z.infer<typeof locationSchema>;
 
 const sinisterSchema = z.object({
   date: z.coerce.date(),
-  type: z.string().min(1),
-  severity: z.string().min(1),
   primaryFactor: z.string().min(1),
   injuryType: z.string().min(1),
   collisionType: z.string().min(1),

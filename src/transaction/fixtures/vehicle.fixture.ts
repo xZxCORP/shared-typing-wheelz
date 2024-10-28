@@ -13,8 +13,6 @@ export const vehicleFixture: Vehicle = {
   sinisters: [
     {
       date: new Date('2023-01-01'),
-      type: 'collision',
-      severity: 'minor',
       primaryFactor: 'distraction',
       injuryType: 'none',
       collisionType: 'rear_end',
