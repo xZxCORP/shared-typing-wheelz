@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { vinSchema } from './vin.js';
+
 const coordinatesSchema = z.object({
   latitude: z.number(),
   longitude: z.number(),
@@ -34,7 +36,7 @@ const risksIssuesSchema = z.object({
 export type RisksIssues = z.infer<typeof risksIssuesSchema>;
 
 export const vehicleSchema = z.object({
-  vin: z.string().min(17).max(17),
+  vin: vinSchema,
   constructorName: z.string().min(1),
   model: z.string().min(1),
   year: z.number().int(),
