@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { signatureSchema } from './signature.js';
 import { vehicleTransactionDataSchema } from './vehicle-transaction-data.js';
-export const statusSchema = z.enum(['pending', 'finished']);
+export const statusSchema = z.enum(['pending', 'error', 'finished']);
 export type Status = z.infer<typeof statusSchema>;
 export const vehicleTransactionSchema = z
   .object({
