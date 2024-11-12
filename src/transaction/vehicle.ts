@@ -42,7 +42,7 @@ export const vehicleInfosSchema = z.object({
   firstRegistrationInFranceDate: z.string(),
   firstSivRegistrationDate: z.string(),
   licensePlate: z.string(),
-  sivConversionDate: z.string(),
+  sivConversionDate: z.string().nullish(),
 });
 export type VehicleInfos = z.infer<typeof vehicleInfosSchema>;
 export const vehicleHistoryItemSchema = z.object({
