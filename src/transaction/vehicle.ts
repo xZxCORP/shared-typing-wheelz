@@ -33,7 +33,7 @@ export const vehicleFeaturesSchema = z.object({
   sonorousPowerLevel: z.number().int(),
   engineSpeed: z.number().int(),
   co2Emission: z.number().int().nullish(),
-  pollutionLevel: z.number().int(),
+  pollutionCode: z.string().min(1),
   powerMassRatio: z.number().int().nullish(),
 });
 export type VehicleFeatures = z.infer<typeof vehicleFeaturesSchema>;
