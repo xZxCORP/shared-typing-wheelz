@@ -60,8 +60,8 @@ export const technicalControlItemSchema = z.object({
 export type TechnicalControlItem = z.infer<typeof technicalControlItemSchema>;
 export const sinisterInfosSchema = z.object({
   count: z.number().int(),
-  lastResolutionDate: z.string(),
-  lastSinisterDate: z.string(),
+  lastResolutionDate: z.string().nullish(),
+  lastSinisterDate: z.string().nullish(),
 });
 export type SinisterInfos = z.infer<typeof sinisterInfosSchema>;
 export const vehicleSchema = z.object({
