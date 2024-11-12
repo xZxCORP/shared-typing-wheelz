@@ -2,46 +2,74 @@ import { z } from 'zod';
 
 import { vinSchema } from './vin.js';
 
-const coordinatesSchema = z.object({
-  latitude: z.number(),
-  longitude: z.number(),
+export const vehicleFeaturesSchema = z.object({
+  brand: z.string().min(1),
+  model: z.string().min(1),
+  cvPower: z.number().int(),
+  color: z.string().min(1),
+  tvv: z.string().min(1),
+  cnitNumber: z.string().min(1),
+  receptionType: z.string().min(1),
+  //F1
+  technicallyAdmissiblePTAC: z.number().int(),
+  //F2
+  ptac: z.number().int(),
+  //F3
+  ptra: z.number().int().nullish(),
+  //G
+  ptService: z.number().int(),
+  //G1
+  ptav: z.number().int(),
+  category: z.string().min(1),
+  gender: z.string().min(1),
+  ceBody: z.string().min(1),
+  nationalBody: z.string().min(1),
+  receptionNumber: z.string().min(1),
+  displacement: z.number().int(),
+  netPower: z.number().int(),
+  energy: z.string().min(1),
+  seatingNumber: z.number().int(),
+  standingPlacesNumber: z.number().int().nullish(),
+  sonorousPowerLevel: z.number().int(),
+  engineSpeed: z.number().int(),
+  co2Emission: z.number().int().nullish(),
+  pollutionLevel: z.number().int(),
+  powerMassRatio: z.number().int().nullish(),
 });
-export type Coordinates = z.infer<typeof coordinatesSchema>;
-
-const locationSchema = z.object({
-  description: z.string().min(1),
-  coordinates: coordinatesSchema,
+export type VehicleFeatures = z.infer<typeof vehicleFeaturesSchema>;
+export const vehicleInfosSchema = z.object({
+  holderCount: z.number().int(),
+  firstRegistrationInFranceDate: z.string(),
+  firstSivRegistrationDate: z.string(),
+  licensePlate: z.string(),
+  sivConversionDate: z.string(),
 });
-export type Location = z.infer<typeof locationSchema>;
-
-const sinisterSchema = z.object({
-  date: z.coerce.date(),
-  primaryFactor: z.string().min(1),
-  injuryType: z.string().min(1),
-  collisionType: z.string().min(1),
-  isWeekend: z.boolean(),
-  location: locationSchema,
+export type VehicleInfos = z.infer<typeof vehicleInfosSchema>;
+export const vehicleHistoryItemSchema = z.object({
+  date: z.string(),
+  type: z.string(),
 });
-export type Sinister = z.infer<typeof sinisterSchema>;
-
-export const riskIssueItem = z.object({
-  name: z.string().min(1),
+export type VehicleHistoryItem = z.infer<typeof vehicleHistoryItemSchema>;
+export const technicalControlItemSchema = z.object({
+  date: z.string(),
+  result: z.string(),
+  resultRaw: z.string(),
+  nature: z.string(),
+  km: z.number().int(),
 });
-export type RiskIssueItem = z.infer<typeof riskIssueItem>;
-const risksIssuesSchema = z.object({
-  exterior: z.array(riskIssueItem),
-  mechanical: z.array(riskIssueItem),
-  generic: z.array(riskIssueItem),
+export type TechnicalControlItem = z.infer<typeof technicalControlItemSchema>;
+export const sinisterInfosSchema = z.object({
+  count: z.number().int(),
+  lastResolutionDate: z.string(),
+  lastSinisterDate: z.string(),
 });
-export type RisksIssues = z.infer<typeof risksIssuesSchema>;
-
+export type SinisterInfos = z.infer<typeof sinisterInfosSchema>;
 export const vehicleSchema = z.object({
   vin: vinSchema,
-  constructorName: z.string().min(1),
-  model: z.string().min(1),
-  year: z.number().int(),
-  risks: risksIssuesSchema,
-  sinisters: z.array(sinisterSchema),
-  issues: risksIssuesSchema,
+  features: vehicleFeaturesSchema,
+  infos: vehicleInfosSchema,
+  history: z.array(vehicleHistoryItemSchema),
+  technicalControls: z.array(technicalControlItemSchema),
+  sinisterInfos: sinisterInfosSchema,
 });
 export type Vehicle = z.infer<typeof vehicleSchema>;
