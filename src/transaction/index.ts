@@ -8,3 +8,4 @@ export * from './vehicle.js';
 export * from './vehicle-transaction.js';
 export * from './vehicle-transaction-completed.js';
 export * from './vehicle-transaction-data.js';
+export * from './vin.js';
