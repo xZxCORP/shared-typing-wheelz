@@ -15,7 +15,7 @@ export const vehicleFeaturesSchema = z.object({
   //F2
   ptac: z.number(),
   //F3
-  ptra: z.number().optional(),
+  ptra: z.number().nullable(),
   //G
   ptService: z.number(),
   //G1
@@ -29,12 +29,12 @@ export const vehicleFeaturesSchema = z.object({
   netPower: z.number(),
   energy: z.string().min(1),
   seatingNumber: z.number(),
-  standingPlacesNumber: z.number().optional(),
+  standingPlacesNumber: z.number().nullable(),
   sonorousPowerLevel: z.number(),
   engineSpeed: z.number(),
-  co2Emission: z.number().optional(),
+  co2Emission: z.number().nullable(),
   pollutionCode: z.string().min(1),
-  powerMassRatio: z.number().optional(),
+  powerMassRatio: z.number().nullable(),
 });
 export type VehicleFeatures = z.infer<typeof vehicleFeaturesSchema>;
 export const vehicleInfosSchema = z.object({
@@ -42,7 +42,7 @@ export const vehicleInfosSchema = z.object({
   firstRegistrationInFranceDate: z.string(),
   firstSivRegistrationDate: z.string(),
   licensePlate: z.string(),
-  sivConversionDate: z.string().optional(),
+  sivConversionDate: z.string().nullable(),
 });
 export type VehicleInfos = z.infer<typeof vehicleInfosSchema>;
 export const vehicleHistoryItemSchema = z.object({
@@ -60,8 +60,8 @@ export const technicalControlItemSchema = z.object({
 export type TechnicalControlItem = z.infer<typeof technicalControlItemSchema>;
 export const sinisterInfosSchema = z.object({
   count: z.number(),
-  lastResolutionDate: z.string().optional(),
-  lastSinisterDate: z.string().optional(),
+  lastResolutionDate: z.string().nullable(),
+  lastSinisterDate: z.string().nullable(),
 });
 export type SinisterInfos = z.infer<typeof sinisterInfosSchema>;
 export const vehicleSchema = z.object({
