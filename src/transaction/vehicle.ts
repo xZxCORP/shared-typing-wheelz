@@ -5,40 +5,40 @@ import { vinSchema } from './vin.js';
 export const vehicleFeaturesSchema = z.object({
   brand: z.string().min(1),
   model: z.string().min(1),
-  cvPower: z.number(),
+  cvPower: z.coerce.number(),
   color: z.string().min(1),
   tvv: z.string().min(1),
   cnitNumber: z.string().min(1),
   receptionType: z.string().min(1),
   //F1
-  technicallyAdmissiblePTAC: z.number(),
+  technicallyAdmissiblePTAC: z.coerce.number(),
   //F2
-  ptac: z.number(),
+  ptac: z.coerce.number(),
   //F3
-  ptra: z.number().nullable(),
+  ptra: z.coerce.number().nullable(),
   //G
-  ptService: z.number(),
+  ptService: z.coerce.number(),
   //G1
-  ptav: z.number(),
+  ptav: z.coerce.number(),
   category: z.string().min(1),
   gender: z.string().min(1),
   ceBody: z.string().min(1),
   nationalBody: z.string().min(1),
   receptionNumber: z.string().min(1),
-  displacement: z.number(),
-  netPower: z.number(),
+  displacement: z.coerce.number(),
+  netPower: z.coerce.number(),
   energy: z.string().min(1),
-  seatingNumber: z.number(),
-  standingPlacesNumber: z.number().nullable(),
-  sonorousPowerLevel: z.number(),
-  engineSpeed: z.number(),
-  co2Emission: z.number().nullable(),
+  seatingNumber: z.coerce.number(),
+  standingPlacesNumber: z.coerce.number().nullable(),
+  sonorousPowerLevel: z.coerce.number(),
+  engineSpeed: z.coerce.number(),
+  co2Emission: z.coerce.number().nullable(),
   pollutionCode: z.string().min(1),
-  powerMassRatio: z.number().nullable(),
+  powerMassRatio: z.coerce.number().nullable(),
 });
 export type VehicleFeatures = z.infer<typeof vehicleFeaturesSchema>;
 export const vehicleInfosSchema = z.object({
-  holderCount: z.number(),
+  holderCount: z.coerce.number(),
   firstRegistrationInFranceDate: z.string(),
   firstSivRegistrationDate: z.string(),
   licensePlate: z.string(),
@@ -55,11 +55,11 @@ export const technicalControlItemSchema = z.object({
   result: z.string(),
   resultRaw: z.string(),
   nature: z.string(),
-  km: z.number(),
+  km: z.coerce.number(),
 });
 export type TechnicalControlItem = z.infer<typeof technicalControlItemSchema>;
 export const sinisterInfosSchema = z.object({
-  count: z.number(),
+  count: z.coerce.number(),
   lastResolutionDate: z.string().nullable(),
   lastSinisterDate: z.string().nullable(),
 });
