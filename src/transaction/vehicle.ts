@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-null */
 import { z } from 'zod';
 
 import { vinSchema } from './vin.js';
@@ -73,3 +74,73 @@ export const vehicleSchema = z.object({
   sinisterInfos: sinisterInfosSchema,
 });
 export type Vehicle = z.infer<typeof vehicleSchema>;
+export const vehicleFixture: Vehicle = {
+  vin: 'VF7NANF1J71000001',
+  features: {
+    brand: 'Peugeot',
+    model: '208',
+    cvPower: 75,
+    color: 'Bleu',
+    tvv: 'Compacte',
+    cnitNumber: '1234567890',
+    receptionType: 'CIV',
+    technicallyAdmissiblePTAC: 1800,
+    ptac: 1700,
+    ptra: 2200,
+    ptService: 1200,
+    ptav: 1000,
+    category: 'Voiture particulière',
+    gender: 'H',
+    ceBody: 'Berline',
+    nationalBody: 'Peugeot',
+    receptionNumber: '9876543210',
+    displacement: 1199,
+    netPower: 55,
+    energy: 'Essence',
+    seatingNumber: 5,
+    standingPlacesNumber: null,
+    sonorousPowerLevel: 80,
+    engineSpeed: 2500,
+    co2Emission: 110,
+    pollutionCode: 'EURO6',
+    powerMassRatio: 0.08,
+  },
+  infos: {
+    holderCount: 1,
+    firstRegistrationInFranceDate: '2019-03-15',
+    firstSivRegistrationDate: '2019-03-18',
+    licensePlate: 'AB-123-CD',
+    sivConversionDate: null,
+  },
+  history: [
+    {
+      date: '2020-06-01',
+      type: 'Réparation moteur',
+    },
+    {
+      date: '2021-04-15',
+      type: 'Vidange',
+    },
+  ],
+  technicalControls: [
+    {
+      date: '2023-04-12',
+      result: 'Ok',
+      resultRaw: 'Aucune anomalie',
+      nature: 'Contrôle technique',
+      km: 25_000,
+    },
+    {
+      date: '2022-04-12',
+      result: 'Défectueux',
+      resultRaw: 'Freins usés',
+      nature: 'Contrôle technique',
+      km: 18_000,
+    },
+  ],
+  sinisterInfos: {
+    count: 1,
+    lastResolutionDate: '2022-01-10',
+    lastSinisterDate: '2021-12-20',
+  },
+};
