@@ -2,12 +2,12 @@ import { z } from 'zod';
 
 import { vinSchema } from './vin.js';
 
-export const scraVehicleDataSchema = z.object({
+export const scrapVehicleDataSchema = z.object({
   vin: vinSchema,
-  nom: z.string(),
-  prenom: z.string(),
-  immat: z.string(),
-  numeroFormule: z.string(),
+  nom: z.string().min(1),
+  prenom: z.string().min(1),
+  immat: z.string().min(1),
+  numeroFormule: z.string().min(1),
 });
 
-export type ScrapVehicleData = z.infer<typeof scraVehicleDataSchema>;
+export type ScrapVehicleData = z.infer<typeof scrapVehicleDataSchema>;
