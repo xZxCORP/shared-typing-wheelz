@@ -4,6 +4,7 @@ export * from './queue-transaction.js';
 export * from './scrap-vehicle-data.js';
 export * from './signature.js';
 export * from './transaction-action.js';
+export * from './transaction-stats.js';
 export * from './update-vehicle-transaction-data.js';
 export * from './vehicle.js';
 export * from './vehicle-transaction.js';
