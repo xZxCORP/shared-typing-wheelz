@@ -9,6 +9,7 @@ export const chainStatsSchema = z.object({
       newTransactions: z.number(),
     })
     .nullable(),
-  evolution: z.array(dateValueSchema),
+  evolutionOfTransactions: z.array(dateValueSchema),
+  evolutionOfVehicles: z.array(dateValueSchema),
 });
 export type ChainStats = z.infer<typeof chainStatsSchema>;
