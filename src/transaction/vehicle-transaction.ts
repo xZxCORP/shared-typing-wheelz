@@ -9,6 +9,7 @@ export const vehicleTransactionSchema = z
     id: z.string(),
     timestamp: z.coerce.date(),
     dataSignature: signatureSchema,
+    withAnomaly: z.boolean(),
     status: statusSchema,
   })
   .and(vehicleTransactionDataSchema);
