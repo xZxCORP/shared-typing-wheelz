@@ -124,18 +124,18 @@ export const vehicleFixture: Vehicle = {
   ],
   technicalControls: [
     {
-      date: '2023-04-12',
-      result: 'Ok',
-      resultRaw: 'Aucune anomalie',
-      nature: 'Contrôle technique',
-      km: 25_000,
-    },
-    {
       date: '2022-04-12',
       result: 'Défectueux',
       resultRaw: 'Freins usés',
       nature: 'Contrôle technique',
       km: 18_000,
+    },
+    {
+      date: '2023-04-12',
+      result: 'Ok',
+      resultRaw: 'Aucune anomalie',
+      nature: 'Contrôle technique',
+      km: 25_000,
     },
   ],
   sinisterInfos: {
