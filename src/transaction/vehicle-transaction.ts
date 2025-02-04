@@ -11,6 +11,7 @@ export const vehicleTransactionSchema = z
     dataSignature: signatureSchema,
     withAnomaly: z.boolean(),
     status: statusSchema,
+    userId: z.string(),
   })
   .and(vehicleTransactionDataSchema);
 export type VehicleTransaction = z.infer<typeof vehicleTransactionSchema>;
