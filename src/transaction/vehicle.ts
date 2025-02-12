@@ -67,7 +67,6 @@ export const sinisterInfosSchema = z.object({
 export type SinisterInfos = z.infer<typeof sinisterInfosSchema>;
 export const vehicleSchema = z.object({
   vin: vinSchema,
-  userId: z.string(),
   features: vehicleFeaturesSchema,
   infos: vehicleInfosSchema,
   history: z.array(vehicleHistoryItemSchema),
@@ -76,9 +75,12 @@ export const vehicleSchema = z.object({
   attachedClientsIds: z.array(z.string()),
 });
 export type Vehicle = z.infer<typeof vehicleSchema>;
+export const vehicleWithUserIdSchema = vehicleSchema.extend({
+  userId: z.string(),
+});
+export type VehicleWithUserId = z.infer<typeof vehicleWithUserIdSchema>;
 export const vehicleFixture: Vehicle = {
   vin: 'VF7NANF1J71000001',
-  userId: '1',
   features: {
     brand: 'Peugeot',
     model: '208',
