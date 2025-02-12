@@ -14,6 +14,7 @@ const partialItems = vehicleSchema
   .pick({
     history: true,
     technicalControls: true,
+    attachedClientsIds: true,
   })
   .partial();
 export const updateVehicleTransactionChangesSchema = z.object({
