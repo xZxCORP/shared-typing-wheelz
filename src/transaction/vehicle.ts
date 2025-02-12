@@ -73,6 +73,7 @@ export const vehicleSchema = z.object({
   history: z.array(vehicleHistoryItemSchema),
   technicalControls: z.array(technicalControlItemSchema),
   sinisterInfos: sinisterInfosSchema,
+  attachedClientsIds: z.array(z.string()),
 });
 export type Vehicle = z.infer<typeof vehicleSchema>;
 export const vehicleFixture: Vehicle = {
@@ -145,4 +146,5 @@ export const vehicleFixture: Vehicle = {
     lastResolutionDate: '2022-01-10',
     lastSinisterDate: '2021-12-20',
   },
+  attachedClientsIds: [],
 };
