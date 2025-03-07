@@ -57,6 +57,7 @@ export const technicalControlItemSchema = z.object({
   resultRaw: z.string(),
   nature: z.string(),
   km: z.coerce.number(),
+  fileUrl: z.string().nullable(),
 });
 export type TechnicalControlItem = z.infer<typeof technicalControlItemSchema>;
 export const sinisterInfosSchema = z.object({
@@ -134,6 +135,7 @@ export const vehicleFixture: Vehicle = {
       resultRaw: 'Freins usés',
       nature: 'Contrôle technique',
       km: 18_000,
+      fileUrl: null,
     },
     {
       date: '2023-04-12',
@@ -141,6 +143,7 @@ export const vehicleFixture: Vehicle = {
       resultRaw: 'Aucune anomalie',
       nature: 'Contrôle technique',
       km: 25_000,
+      fileUrl: null,
     },
   ],
   sinisterInfos: {
